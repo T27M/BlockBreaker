@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-
-    public int rows = 5;
+    private const float spacer = 1.3f;
+    public int rows = 4;
     public int cols = 5;
+
+    public float offsetY = 4.0f;
+    public float offsetX = -5.78f;
 
     public GameObject Block;
 
@@ -17,7 +20,7 @@ public class BlockSpawner : MonoBehaviour
         {
             for (int j = 0; j < rows; j++)
             {
-                GameObject.Instantiate(Block, new Vector3(-5.8f + (5.8f * i), 4 * j, 0), Quaternion.identity);
+                GameObject.Instantiate(Block, new Vector3(offsetX + (spacer * i), offsetY + (-spacer * j), 0), Quaternion.identity);
             }
         }
     }
