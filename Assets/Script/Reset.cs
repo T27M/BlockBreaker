@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Reset : MonoBehaviour
 {
+    public GameManager gm;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Reset");
@@ -15,6 +17,7 @@ public class Reset : MonoBehaviour
             if (ball.gameObject.CompareTag("Ball"))
             {
                 ball.GetComponent<Ball>().ResetBall();
+                gm.LoseLife();
             }
         }
     }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    private static Vector3 offScreen = new Vector3(100, 100, 0);
+    private static Vector3 offScreen = new Vector3(20, 20, 0);
+
+    public GameManager gm;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.collider.attachedRigidbody.AddForce(collision.collider.attachedRigidbody.velocity * 0.1f, ForceMode2D.Impulse);
-
-        Debug.Log("Collide");
+        gm.HitBrick();
         this.transform.position = offScreen;
     }
 }
